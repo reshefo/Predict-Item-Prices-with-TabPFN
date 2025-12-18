@@ -1,7 +1,7 @@
 print('Starting construction price prediction...')
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from tabpfn import TabPFNRegressor  # Changed from Classifier to Regressor
+from tabpfn import TabPFNRegressor
 from tabpfn.constants import ModelVersion
 import pandas as pd
 
@@ -15,7 +15,6 @@ df = pd.read_excel('data.xlsx')  # or read_csv
 df = df.dropna(subset=["Price"])
 
 # Combine relevant text columns into one string per row
-# Choose which columns contain text you want to analyze
 text_columns = ['Company Name', 'Discipline', 'Size', 'UoM', 'Spec', 'Unique SOR Code', 'Item Description', 'Specification']
 
 # Create combined text (handling NaN values)
